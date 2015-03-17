@@ -4,18 +4,11 @@ var router  = express.Router();
 
 var mongoose = require("mongoose");
 
+var Picture = require("../models/picture");
+
 
 
 // ------- MODELS --------
-
-
-//Picture Model
-
-var Picture = mongoose.model('Picture', {
-  url:String, //url to the image in /submissions
-  user_id:String, //id of the submitted user
-  reply:String //user reply, if any
-});
 
 
 // ------- ROUTES --------
