@@ -21,11 +21,18 @@
     <script>
 
       function sendImage(){
-        console.log("Send")
+        console.log("Send");
+
+        $.post("/api/pictures", null, function( res){
+          console.log(res);
+        })
+
       }
 
       function getImage(){
-        console.log("Get");
+        $.get("/api/pictures", null, function(res ){
+          console.log(res);
+        })
       }
 
       function deleteImage(){

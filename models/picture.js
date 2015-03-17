@@ -1,6 +1,7 @@
-module.exports = function(){
+var mongoose = require("mongoose");
 
-  var Picture = mongoose.model('Picture', {
+
+var Picture = mongoose.model('Picture', {
     url:String, //url to the image in /submissions
     user_id:String, //id of the submitted user
     reply:String, //user reply, if any
@@ -8,4 +9,4 @@ module.exports = function(){
     flag:Number
   });
 
-}  
+module.exports = Picture  

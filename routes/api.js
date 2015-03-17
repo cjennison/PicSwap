@@ -6,12 +6,14 @@ var mongoose = require("mongoose");
 
 var Picture = require("../models/picture");
 
-
-
 // ------- MODELS --------
 
 
 // ------- ROUTES --------
+
+router.use(function(req, res, next){
+  next();
+});
 
 //Test Route
 router.route("/test")
@@ -22,6 +24,7 @@ router.route("/test")
 //Pictures
 router.route("/pictures")
   .get(function(req, res){
+    console.log("Getting Pictures");
     Picture.find(function(err, pictures){
       if(err) console.log(err);
 
@@ -29,14 +32,15 @@ router.route("/pictures")
     })
   })
   .post(function(req, res){
+    console.log("Posting Pictures");
     Picture.create({
-      url:req.body.url,
+      url:"An example URL",
       user_id:"1337",
       reply:null
     }, function(err, picture){
       if(err) console.log(err);
 
-      res.json({success:true, messgae:"Picture Sent"});
+      res.json({success:true, messgae:"Picture Sent", picture:picture});
     })
   })
 
